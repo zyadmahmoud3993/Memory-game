@@ -14,6 +14,8 @@ let paper = new Audio("paper.mp3");
 
 let win = new Audio("win.mp3");
 
+let succ = new Audio("Success.mp3");
+
 
 shuffledItems.forEach((item) => {
     card = document.createElement("div");
@@ -40,6 +42,7 @@ function fun(item) {
         if (Inverted[0].target.innerHTML == Inverted[1].target.innerHTML) {
             done.push(Inverted[0].target, Inverted[1].target);
             Inverted = [];
+            succ.play();
             if (done.length == items.length) {
                 win.play();
                 setTimeout(() => {
@@ -53,6 +56,7 @@ function fun(item) {
 
         } else {
             setTimeout(() => {
+                paper.play();
                 Inverted[0].target.classList.remove("active");
                 Inverted[1].target.classList.remove("active");
                 Inverted = [];
